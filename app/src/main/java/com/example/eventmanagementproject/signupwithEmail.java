@@ -27,12 +27,10 @@ public class signupwithEmail extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signupwith_email);  // Corrected layout file name
+        setContentView(R.layout.activity_signupwith_email);
 
-        // Initialize Firebase Database reference
+
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
-
-        // Initialize views
         nameInput = findViewById(R.id.usernameInput);
         emailInput = findViewById(R.id.emailInput);
         passwordInput = findViewById(R.id.passwordInput);
@@ -41,7 +39,7 @@ public class signupwithEmail extends AppCompatActivity {
         confirmPasswordToggle = findViewById(R.id.confirmPasswordToggle);
         signupButton = findViewById(R.id.signupButton);
 
-        // Set onClickListener for password toggle
+
         passwordToggle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +47,7 @@ public class signupwithEmail extends AppCompatActivity {
             }
         });
 
-        // Set onClickListener for confirm password toggle
+
         confirmPasswordToggle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,7 +97,6 @@ public class signupwithEmail extends AppCompatActivity {
         String password = passwordInput.getText().toString().trim();
         String confirmPassword = confirmPasswordInput.getText().toString().trim();
 
-        // Validate inputs
         if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
             return;
@@ -115,7 +112,7 @@ public class signupwithEmail extends AppCompatActivity {
             return;
         }
 
-        // Create HelperClass object and save to Firebase
+
         HelperClass user = new HelperClass(email, name, password, "");
         String userId = databaseReference.push().getKey();
         if (userId != null) {

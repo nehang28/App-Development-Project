@@ -28,10 +28,10 @@ public class signupWithPhone extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_with_phone);
 
-        // Initialize Firebase Database reference
+
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
 
-        // Initialize views
+
         nameInput = findViewById(R.id.usernameInput);
         phoneNumberInput = findViewById(R.id.phoneNumberInput);
         passwordInput = findViewById(R.id.passwordInput);
@@ -40,7 +40,7 @@ public class signupWithPhone extends AppCompatActivity {
         confirmPasswordToggle = findViewById(R.id.confirmPasswordToggle);
         signupButton = findViewById(R.id.signupButton);
 
-        // Set onClickListener for password toggle
+
         passwordToggle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,7 +48,7 @@ public class signupWithPhone extends AppCompatActivity {
             }
         });
 
-        // Set onClickListener for confirm password toggle
+
         confirmPasswordToggle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,7 +56,7 @@ public class signupWithPhone extends AppCompatActivity {
             }
         });
 
-        // Handle sign up button click
+
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,7 +65,7 @@ public class signupWithPhone extends AppCompatActivity {
         });
     }
 
-    // Method to toggle password visibility
+
     private void togglePasswordVisibility() {
         if (isPasswordVisible) {
             passwordInput.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
@@ -78,7 +78,7 @@ public class signupWithPhone extends AppCompatActivity {
         isPasswordVisible = !isPasswordVisible;
     }
 
-    // Method to toggle confirm password visibility
+
     private void toggleConfirmPasswordVisibility() {
         if (isConfirmPasswordVisible) {
             confirmPasswordInput.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
@@ -91,7 +91,7 @@ public class signupWithPhone extends AppCompatActivity {
         isConfirmPasswordVisible = !isConfirmPasswordVisible;
     }
 
-    // Method to perform sign up and save user data to Firebase
+
     private void performSignUp() {
         String name = nameInput.getText().toString().trim();
         String phoneNumber = phoneNumberInput.getText().toString().trim();
