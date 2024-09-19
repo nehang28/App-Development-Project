@@ -28,7 +28,6 @@ public class signupWithPhone extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_with_phone);
 
-
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
 
 
